@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int width, height;
+	cout << "Введите ширину и высоту: "; cin >> width >> height;
+	for (int i = 1; i <= height; i++) {
+		for (int n = -1; n <= width; n++) {
+			if (n == -1 or n == width) {
+				cout << "|";
+			}
+			else if (i == 1 or i == height) {
+				cout << "-";
+			}
+			else cout << " ";
+		}
+		cout << "\n";
+	}
+}
