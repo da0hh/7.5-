@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    for (int column = 0; column <= 20; column++) {
+        for (int row = 0; row <= 50; row++) {
+            if (column == 10 and row == 25)
+              std::cout << "+";
+            if (column == 10)
+                std::cout << "-";
+            else if (row == 25)
+                std::cout << "|";
+            else
+                std::cout << " ";
+        }
+        std::cout << "\n";
+    }
+}
