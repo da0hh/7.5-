@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int weight = 15 / 2, size = 20 / 2, centre, possitionWeight = weight, positionSize = size; string button;
+    cout << "[Программа]: Марсоход находится на позиции " << weight << ", " << size << ", введите команду: \n";
+    cout << "[Оператор]: ";  cin >> button;
+    while (true) {
+
+        if (button != "W" and button != "S" and button != "D" and button != "A") {
+            cout << "Введите корректную команду\n";
+            cout << "[Оператор]: "; cin >> button;
+            continue;
+        }
+
+        if (button == "W") {
+            if (positionSize >= 20) {
+                cout << "[Программа]: Марсоход находится на позиции " << possitionWeight << ", " << 20 << ", введите команду: \n";
+            }
+            else {
+                cout << "[Программа]: Марсоход находится на позиции " << possitionWeight << ", " << positionSize + 1 << ", введите команду: \n";
+                positionSize++;
+            }
+        }
+        else if (button == "S") {
+            if (positionSize <= 0) {
+                cout << "[Программа]: Марсоход находится на позиции " << possitionWeight << ", " << 0 << ", введите команду: \n"; 
+            }
+            else {
+                cout << "[Программа]: Марсоход находится на позиции " << possitionWeight << ", " << positionSize << ", введите команду: \n";
+                positionSize--;
+            }
+        }
+        else if (button == "A") {
+            if (possitionWeight <= 0) {
+                cout << "[Программа]: Марсоход находится на позиции " << 0 << ", " << positionSize << ", введите команду: \n";
+            }
+            else {
+                cout << "[Программа]: Марсоход находится на позиции " << possitionWeight << ", " << positionSize << ", введите команду: \n";
+                possitionWeight--;
+            }
+        }
+        else if (button == "D") {
+            if (possitionWeight >= 15) {
+                cout << "[Программа]: Марсоход находится на позиции " << 15 << ", " << positionSize << ", введите команду: \n";
+            }
+            else {
+                cout << "[Программа]: Марсоход находится на позиции " << possitionWeight << ", " << positionSize << ", введите команду: \n";
+                possitionWeight++;
+            }
+        }
+        else {
+            "error";
+        }
+        cout << "[Оператор]: ";  cin >> button;
+    }
+}
