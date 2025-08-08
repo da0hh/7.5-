@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int totalWater, totalMilk;  int choice, americanoCount = 0,  latteCount = 0;         
+    cout << "Введите количество воды в мл: "; cin >> totalWater;
+    cout << "Введите количество молока в мл: "; cin >> totalMilk;
+
+    while (true) {
+        cout << "\nВыберите напиток (1 — американо, 2 — латте): "; cin >> choice;
+
+        if (choice != 1 and choice != 2) {
+            cout << "Выберете 1 — американо, 2 — латте\nА не что-то другое";
+            continue;
+        }
+
+        if (choice == 1) {
+            if (totalWater >= 300) {
+                cout << "Ваш напиток готов.\n";
+                totalWater -= 300;
+                americanoCount++;
+            }
+            else cout << "Не хватает воды\n";
+        }
+
+        if (choice == 2) {
+            if (totalWater >= 30 and totalMilk >= 270) {
+                cout << "Ваш напиток готов.\n";
+                totalMilk -= 270;
+                totalWater -= 30;
+                latteCount++;
+            }
+            else if(totalWater < 30 and totalMilk >= 270){
+                cout << "Не хватает воды\n";
+            }else cout << "Не хватает молока\n";
+        }
+        if (totalMilk < 270 and totalWater < 300) break;
+    }
+
+
+    cout << "\n***Отчёт***\n";
+    cout << "Ингредиентов осталось:\n";
+    cout << "    Вода: " << totalWater << " мл\n";
+    cout << "    Молоко: " << totalMilk << " мл\n";
+    cout << "Кружек американо приготовлено: " << americanoCount << "\n";
+    cout << "Кружек латте приготовлено: " << latteCount << "\n";
+}
