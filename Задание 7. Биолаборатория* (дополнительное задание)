@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int countVirus, countAntivirus;
+	cout << "Введите количество бактерий: "; cin >> countVirus;
+	cout << "Введите количество антибиотика: "; cin >> countAntivirus;
+
+	while (true) {
+		if (countVirus == false and countAntivirus == false) {
+			cout << "Ввод некорректный\n";
+			cout << "Введите данные заново: \n";
+			cout << "Введите количество бактерий: "; cin >> countVirus;
+			cout << "Введите количество антибиотика: "; cin >> countAntivirus;
+			break;
+		}
+		else break;
+	}
+
+	int time = 1;
+	for (int killVirus = countAntivirus * 10; killVirus >= 0; killVirus--) {
+		for (int virus = countVirus * 2; virus >= 0; time++) {
+			if (killVirus - virus == 0) {
+				cout << "Все вирусы уничтожены\n";
+				return 0;
+			}
+			else{
+				cout << "После " << time << " часа бактерий осталось " << virus - killVirus << "\n";
+				break;
+			}
+		}
+	}
+}
